@@ -1,11 +1,15 @@
 {
   "dependencies": {
+    "@expo-google-fonts/inter": "^0.2.2",
     "expo": "^46.0.0",
+    "expo-app-loading": "~2.1.0",
+    "expo-font": "~10.2.0",
     "react": "18.0.0",
     "react-dom": "18.0.0",
     "react-native": "0.69.4",
     "react-native-web": "~0.18.7",
-    "tailwindcss-react-native": "^1.7.10"
+    "tailwindcss-react-native": "^1.7.10",
+    "twrnc": "^3.4.0"
   },
   "devDependencies": {
     "@babel/core": "^7.18.6",
@@ -19,5 +23,10 @@
   },
   "version": "1.0.0",
   "private": true,
-  "name": "app"
+  "name": "app",
+  "rnpm": {
+    "assets": [
+      "./assets/fonts/"
+    ]
+  }
 }

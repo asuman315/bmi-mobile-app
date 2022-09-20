@@ -1,6 +1,7 @@
 import { View, SafeAreaView, Text, StyleSheet } from 'react-native'
 import React from 'react'
 import tw from 'twrnc';
+import Gender from '../components/Gender'
 import AppLoading from 'expo-app-loading';
 import { useFonts, Poppins_300Light, Poppins_700Bold } from '@expo-google-fonts/poppins';
 
@@ -9,14 +10,15 @@ const Home = () => {
     Poppins_300Light,
     Poppins_700Bold,
   });
-  
-  // if (!fontLoaded ) {
-  //   return <AppLoading />;
-  // }
+
+  if (!fontLoaded ) {
+    return <AppLoading />;
+  }
 
   return (
-    <SafeAreaView style={tw`bg-[#0f172a]`}>
-      <Text style={tw`text-2xl font-extrabold m-5 android:mt-12 uppercase ios:mt-20 text-[#fff]`}>bmi calculator</Text>
+    <SafeAreaView style={tw`bg-[#0f172a] p-6 mt-6`}>
+        <Text style={styles.title}>bmi calculator</Text>
+        <Gender />
     </SafeAreaView>
   )
 }
@@ -26,6 +28,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Poppins_700Bold',
     fontSize: 24,
     color: '#fff',
+    textTransform: 'uppercase',
   }
 });
 

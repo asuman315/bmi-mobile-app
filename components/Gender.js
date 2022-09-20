@@ -38,7 +38,7 @@ const Gender = () => {
        <Ionicons name="md-checkmark-circle-outline" size={28} color="#0f172a" />}
      </View>
      <View style={tw`flex items-center`}>
-      <FontAwesome5 name="male" size={98} color="#0f172a" />
+      <FontAwesome5 name="male" size={98} color={isMaleChecked ? "green" : "#0f172a"} />
       <Text style={styles.title}>male</Text>
      </View>
     </TouchableOpacity>
@@ -48,7 +48,7 @@ const Gender = () => {
        <Ionicons name="md-checkmark-circle-outline" size={28} color="#0f172a" />}
      </View>
      <View style={tw`flex items-center`}>
-      <FontAwesome5 name="female" size={98} color="#0f172a" />
+      <FontAwesome5 name="female" size={98} color={isFemaleChecked ? "green" : "#0f172a"} />
       <Text style={styles.title}>female</Text>
      </View>
     </TouchableOpacity>

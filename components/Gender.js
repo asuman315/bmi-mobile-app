@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
-import { useFonts, Poppins_400Regular } from '@expo-google-fonts/poppins';
+import { useFonts, Poppins_400Regular, Poppins_600SemiBold } from '@expo-google-fonts/poppins';
 import tw from 'twrnc';
 import AppLoading from 'expo-app-loading';
 import Ionicons from '@expo/vector-icons/Ionicons';
@@ -12,6 +12,7 @@ const Gender = () => {
 
  const [fontLoaded] = useFonts({
   Poppins_400Regular,
+  Poppins_600SemiBold,
  });
 
  if (!fontLoaded) {
@@ -29,27 +30,27 @@ const Gender = () => {
  };
 
  return (
-  <View >
+  <View style={tw`mt-2`}>
    <Text style={styles.title}>Gender</Text>
-   <View style={tw`flex flex-row justify-between`}>
-    <TouchableOpacity style={tw`bg-[#475569] relative w-[46%] rounded-md`} onPress={handleMalePress}>
+   <View style={tw`flex flex-row justify-between mt-2`}>
+    <TouchableOpacity style={tw`bg-[#475569] relative w-[46%] rounded-md py-4`} onPress={handleMalePress}>
      <View style={tw`absolute right-2 top-2`}>
       {isMaleChecked ? <Ionicons name="md-checkmark-circle" size={28} color="green" /> :
        <Ionicons name="md-checkmark-circle-outline" size={28} color="#0f172a" />}
      </View>
      <View style={tw`flex items-center`}>
       <FontAwesome5 name="male" size={98} color={isMaleChecked ? "green" : "#0f172a"} />
-      <Text style={styles.title}>male</Text>
+      <Text style={styles.genderTitle}>male</Text>
      </View>
     </TouchableOpacity>
-    <TouchableOpacity style={tw`bg-[#475569] w-[46%] rounded-md`} onPress={handleFemalePress}>
+    <TouchableOpacity style={tw`bg-[#475569] w-[46%] rounded-md py-4`} onPress={handleFemalePress}>
      <View style={tw`absolute right-2 top-2`} >
       {isFemaleChecked ? <Ionicons name="md-checkmark-circle" size={28} color="green" /> :
        <Ionicons name="md-checkmark-circle-outline" size={28} color="#0f172a" />}
      </View>
      <View style={tw`flex items-center`}>
       <FontAwesome5 name="female" size={98} color={isFemaleChecked ? "green" : "#0f172a"} />
-      <Text style={styles.title}>female</Text>
+      <Text style={styles.genderTitle}>female</Text>
      </View>
     </TouchableOpacity>
    </View>
@@ -59,10 +60,16 @@ const Gender = () => {
 
 const styles = StyleSheet.create({
  title: {
+  fontFamily: 'Poppins_600SemiBold',
+  color: '#fff',
+  textTransform: 'capitalize',
+  fontSize: 18,
+ },
+ genderTitle: {
   fontFamily: 'Poppins_400Regular',
   color: '#fff',
   textTransform: 'capitalize'
- }
+ },
 });
 
 export default Gender

@@ -6,12 +6,26 @@ const Inputs = () => {
   return (
     <View style={tw`mt-2`}>
       <Text
-        style={tw`text-white text-lg font-semibold`}
+        style={styles.title}
       >
-        Inputs
+        age
       </Text>
      </View>
   )
 }
+
+const styles = StyleSheet.create({
+ title: {
+  fontFamily: 'Poppins_600SemiBold',
+  color: '#fff',
+  textTransform: 'capitalize',
+  fontSize: 18,
+ },
+ genderTitle: {
+  fontFamily: 'Poppins_400Regular',
+  color: '#fff',
+  textTransform: 'capitalize'
+ },
+});
 
 export default Inputs

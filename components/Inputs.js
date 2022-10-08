@@ -2,12 +2,14 @@ import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, TextInput } from 'react-native';
 import tw from 'twrnc';
 import AgeInput from './AgeInput';
+import WeightInput from './WeightInput';
 
 const Inputs = () => {
 
   return (
     <View style={tw`mt-2`}>
       <AgeInput />
+      <WeightInput />
     </View>
   )
 }

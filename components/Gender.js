@@ -33,7 +33,7 @@ const Gender = () => {
   <View style={tw`mt-2`}>
    <Text style={styles.title}>Gender</Text>
    <View style={tw`flex flex-row justify-between mt-2`}>
-    <TouchableOpacity style={tw`bg-[#475569] relative w-[46%] rounded-md py-4`} onPress={handleMalePress}>
+       <TouchableOpacity style={tw`bg-[#475569] relative w-[46%] rounded-md py-4 ${isMaleChecked && 'border-green-700 border-2'}`} onPress={handleMalePress}>
      <View style={tw`absolute right-2 top-2`}>
       {isMaleChecked ? <Ionicons name="md-checkmark-circle" size={28} color="green" /> :
        <Ionicons name="md-checkmark-circle-outline" size={28} color="#0f172a" />}
@@ -43,7 +43,7 @@ const Gender = () => {
       <Text style={styles.genderTitle}>male</Text>
      </View>
     </TouchableOpacity>
-    <TouchableOpacity style={tw`bg-[#475569] w-[46%] rounded-md py-4`} onPress={handleFemalePress}>
+       <TouchableOpacity style={tw`bg-[#475569] w-[46%] rounded-md py-4 ${isFemaleChecked && 'border-green-700 border-2'}`} onPress={handleFemalePress}>
      <View style={tw`absolute right-2 top-2`} >
       {isFemaleChecked ? <Ionicons name="md-checkmark-circle" size={28} color="green" /> :
        <Ionicons name="md-checkmark-circle-outline" size={28} color="#0f172a" />}

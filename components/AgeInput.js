@@ -25,7 +25,7 @@ const AgeInput = () => {
   const decrementAge = () => {
     ageInputValue > 0 ? setAgeInputValue(ageInputValue - 1) : setAgeInputValue(0)
   };
-  console.log(ageInputValue);
+ // console.log(ageInputValue);
 
   return (
     <View style={tw`mt-4`}>

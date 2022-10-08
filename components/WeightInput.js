@@ -52,22 +52,22 @@ const WeightInput = () => {
    </Text>
    <View style={tw`flex flex-row`}>
     <View style={tw`w-[65%]`}>
-     <TouchableOpacity style={tw`absolute right-2 z-2 top-4`} onPress={incrementAge}>
-      <FontAwesome5 name='plus-circle' size={38} />
+     <TouchableOpacity style={tw`absolute right-2 z-2 top-5`} onPress={incrementAge}>
+      <FontAwesome5 name='plus-circle' size={28} />
      </TouchableOpacity>
      <TextInput style={tw`bg-white rounded-sm h-14 mt-2 text-xl font-semibold text-[#0f172a] pl-2 w-full text-center`}
       placeholder='e.g 77'
       onChangeText={text => setWeightInputValue(text)} keyboardType="number-pad"
       mode="outlined" >{weightInputValue}</TextInput>
-     <TouchableOpacity style={tw`absolute top-4 left-2`} onPress={decrementAge}>
-      <FontAwesome5 name='minus-circle' size={38} />
+     <TouchableOpacity style={tw`absolute top-5 left-2`} onPress={decrementAge}>
+      <FontAwesome5 name='minus-circle' size={28} />
      </TouchableOpacity>
     </View>
     <View style={tw`bg-white h-14 w-[30%] mt-2 ml-4 rounded flex flex-row px-2 justify-between items-center`}>
      <Text style={tw`text-lg font-semibold`} onPress={() => setDisplayUnits(true)}>
       {unit}
      </Text>
-     <FontAwesome5 name='angle-down' size={38} onPress={() => setDisplayUnits(true)} />
+     <FontAwesome5 name='angle-down' size={28} onPress={() => setDisplayUnits(true)} />
     </View>
    </View>
   </View>

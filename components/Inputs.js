@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, TouchableOpacity, TextInput } from 'react-nativ
 import tw from 'twrnc';
 import AgeInput from './AgeInput';
 import WeightInput from './WeightInput';
+import HeightInput from './HeightInput';
 
 const Inputs = () => {
 
@@ -10,6 +11,8 @@ const Inputs = () => {
     <View style={tw`mt-2`}>
       <AgeInput />
       <WeightInput />
+      <HeightInput />
+      <Text style={tw`bg-green-700 mt-10 py-4 text-center text-white font-extrabold text-2xl capitalize tracking-wider rounded`}>get your bmi</Text>
     </View>
   )
 }

@@ -1,4 +1,4 @@
-import { View, SafeAreaView, Text, StyleSheet } from 'react-native'
+import { View, SafeAreaView, Text, StyleSheet, ScrollView } from 'react-native'
 import React from 'react'
 import tw from 'twrnc';
 import Gender from '../components/Gender'
@@ -18,9 +18,11 @@ const Home = () => {
 
   return (
     <SafeAreaView style={tw`bg-[#0f172a] p-6 mt-6`}>
+      <ScrollView>
         <Text style={styles.title}>bmi calculator</Text>
         <Gender />
         <Inputs />
+      </ScrollView>
     </SafeAreaView>
   )
 }

@@ -16,8 +16,15 @@ const AgeInput = () => {
 
   if (!fontLoaded) {
     return <AppLoading />;
-  }
+  };
 
+  const incrementAge = () => {
+    ageInputValue === '' ? setAgeInputValue(1) : setAgeInputValue(parseInt(ageInputValue) + 1)
+  };
+
+  const decrementAge = () => {
+    ageInputValue > 0 ? setAgeInputValue(ageInputValue - 1) : setAgeInputValue(0)
+  };
   console.log(ageInputValue);
 
   return (
@@ -26,16 +33,18 @@ const AgeInput = () => {
         age
       </Text>
       <View>
-        <TouchableOpacity style={tw`absolute right-1 z-2 top-3`}>
-          <FontAwesome5 name='minus-circle' size={38} />
+        <TouchableOpacity style={tw`absolute right-2 z-2 top-4`} onPress={incrementAge}>
+          <FontAwesome5 name='plus-circle' size={38} />
         </TouchableOpacity>
-        <TextInput style={tw`bg-white rounded-sm h-12 mt-2 text-xl font-semibold text-[#0f172a] pl-2 text-center`}
-          value={ageInputValue}
+        <TextInput style={tw`bg-white rounded-sm h-14 mt-2 text-xl font-semibold text-[#0f172a] pl-2 text-center`}
           placeholder='e.g 29'
           onChangeText={text => setAgeInputValue(text)} keyboardType="number-pad"
-          mode="outlined" maxLength={3} />
-        <TouchableOpacity style={tw`absolute top-3 left-1`}>
-          <FontAwesome5 name='plus-circle' size={38}/>
+          mode="outlined"
+          maxLength={3} >
+          {ageInputValue}
+        </TextInput>
+        <TouchableOpacity style={tw`absolute top-4 left-2`} onPress={decrementAge}>
+          <FontAwesome5 name='minus-circle' size={38} />
         </TouchableOpacity>
       </View>
     </View>

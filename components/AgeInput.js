@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet, TouchableOpacity, TextInput } from 'react-native';
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import tw from 'twrnc';
 import { useFonts, Poppins_600SemiBold } from '@expo-google-fonts/poppins';
 import AppLoading from 'expo-app-loading';
@@ -17,12 +17,18 @@ const AgeInput = () => {
   return <AppLoading />;
  }
 
+ console.log(ageInputValue);
+
  return (
   <View style={tw`mt-4`}>
    <Text style={styles.title}>
     age
    </Text>
-   <TextInput style={tw`bg-white rounded-sm h-12 mt-2 text-xl font-semibold text-[#0f172a] pl-2`}/>
+   <TextInput style={tw`bg-white rounded-sm h-12 mt-2 text-xl font-semibold text-[#0f172a] pl-2`}
+    value={ageInputValue}
+    placeholder='e.g 29'
+    onChangeText={text => setAgeInputValue(text)} keyboardType="phone-pad"
+    mode="outlined" />
   </View>
  )
 }

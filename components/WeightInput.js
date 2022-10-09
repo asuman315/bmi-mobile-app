@@ -1,15 +1,23 @@
 import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import tw from 'twrnc';
 import { useFonts, Poppins_600SemiBold } from '@expo-google-fonts/poppins';
 import AppLoading from 'expo-app-loading';
 import { styles } from './Inputs';
 import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
+import { useDispatch, useSelector } from 'react-redux';
+import { bmiActions } from '../store/bmiSlice';
 
 const WeightInput = () => {
  const [weightInputValue, setWeightInputValue] = useState('');
  const [unit, setUnit] = useState('Kgs');
  const [displayUnits, setDisplayUnits] = useState(false);
+ 
+ useEffect(() => {
+   dispatch(bmiActions.setWeight(weightInputValue));
+ }, [weightInputValue]);
+
+ const dispatch = useDispatch();
 
  const [fontLoaded] = useFonts({
   Poppins_600SemiBold,
@@ -21,10 +29,12 @@ const WeightInput = () => {
 
  const incrementAge = () => {
   weightInputValue === '' ? setWeightInputValue(1) : setWeightInputValue(parseInt(weightInputValue) + 1)
+  dispatch(bmiActions.setWeight(weightInputValue + 1));
  };
 
  const decrementAge = () => {
-  weightInputValue > 0 ? setWeightInputValue(weightInputValue - 1) : setWeightInputValue(0)
+  weightInputValue > 0 ? setWeightInputValue(weightInputValue - 1) : setWeightInputValue(0);
+  weightInputValue > 0 ? dispatch(bmiActions.setWeight(weightInputValue - 1)) : dispatch(bmiActions.setWeight(0));
  };
 
  const setKgs = () => {
@@ -36,6 +46,8 @@ const WeightInput = () => {
   setDisplayUnits(false);
   setUnit('Ibs');
  };
+
+ console.log('This is the weight :', weightInputValue);
 
  //console.log(weightInputValue);
 

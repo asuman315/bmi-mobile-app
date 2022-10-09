@@ -13,11 +13,12 @@ const WeightInput = () => {
  const [unit, setUnit] = useState('Kgs');
  const [displayUnits, setDisplayUnits] = useState(false);
  
+ const dispatch = useDispatch();
+
  useEffect(() => {
    dispatch(bmiActions.setWeight(weightInputValue));
- }, [weightInputValue]);
-
- const dispatch = useDispatch();
+   dispatch(bmiActions.setWeightUnit(unit));
+ }, [weightInputValue, unit]);
 
  const [fontLoaded] = useFonts({
   Poppins_600SemiBold,
@@ -47,9 +48,7 @@ const WeightInput = () => {
   setUnit('Ibs');
  };
 
- console.log('This is the weight :', weightInputValue);
-
- //console.log(weightInputValue);
+ console.log('weight unit', unit);
 
  return (
   <View style={tw`mt-6`}>

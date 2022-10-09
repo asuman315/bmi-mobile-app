@@ -8,9 +8,11 @@ const BmiCtaBtn = () => {
   const dispatch = useDispatch();
   const age = useSelector(state => state.bmi.age);
   const isGenderSelected = useSelector(state => state.bmi.isGenderSelected);
+  const weight = useSelector(state => state.bmi.weight);
+  const weightUnit = useSelector(state => state.bmi.weightUnit);
 
   useEffect(() => {
-  console.log("Is gender selected? : ", isGenderSelected);
+  console.log(`This is the weight: ${weight} and it is in ${weightUnit}`);
   });
 
   return (

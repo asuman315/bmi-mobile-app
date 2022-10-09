@@ -12,7 +12,7 @@ const Inputs = () => {
       <AgeInput />
       <WeightInput />
       <HeightInput />
-      <Text style={tw`bg-green-700 mt-10 py-4 text-center text-white font-extrabold text-2xl capitalize tracking-wider rounded`}>get your bmi</Text>
+      <Text style={tw`bg-green-700 mt-10 py-3 text-center text-white font-extrabold text-2xl capitalize tracking-wider rounded`}>get your bmi</Text>
     </View>
   )
 }

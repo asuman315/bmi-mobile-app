@@ -1,15 +1,22 @@
 import { View, Text, StyleSheet, TouchableOpacity, TextInput } from 'react-native';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import tw from 'twrnc';
 import { useFonts, Poppins_600SemiBold } from '@expo-google-fonts/poppins';
 import AppLoading from 'expo-app-loading';
 import { styles } from './Inputs';
 import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
+import { useDispatch, useSelector } from 'react-redux';
+import { bmiActions } from '../store/bmiSlice';
 
 const AgeInput = () => {
 
   const [ageInputValue, setAgeInputValue] = useState('');
+  const dispatch = useDispatch();
 
+  useEffect(() => {
+    dispatch(bmiActions.setAge(ageInputValue));
+  }, [ageInputValue]);
+  
   const [fontLoaded] = useFonts({
     Poppins_600SemiBold,
   });
@@ -18,14 +25,16 @@ const AgeInput = () => {
     return <AppLoading />;
   };
 
+
   const incrementAge = () => {
     ageInputValue === '' ? setAgeInputValue(1) : setAgeInputValue(parseInt(ageInputValue) + 1)
+    dispatch(bmiActions.setAge(ageInputValue + 1));
   };
 
   const decrementAge = () => {
     ageInputValue > 0 ? setAgeInputValue(ageInputValue - 1) : setAgeInputValue(0)
+    ageInputValue > 0 ? dispatch(bmiActions.setAge(ageInputValue - 1)) : dispatch(bmiActions.setAge(0));
   };
- // console.log(ageInputValue);
 
   return (
     <View style={tw`mt-4`}>

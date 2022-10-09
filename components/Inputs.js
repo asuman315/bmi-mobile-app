@@ -4,6 +4,7 @@ import tw from 'twrnc';
 import AgeInput from './AgeInput';
 import WeightInput from './WeightInput';
 import HeightInput from './HeightInput';
+import BmiCtaBtn from './BmiCtaBtn';
 
 const Inputs = () => {
 
@@ -12,7 +13,7 @@ const Inputs = () => {
       <AgeInput />
       <WeightInput />
       <HeightInput />
-      <Text style={tw`bg-green-700 mt-10 py-3 text-center text-white font-extrabold text-2xl capitalize tracking-wider rounded`}>get your bmi</Text>
+      <BmiCtaBtn />
     </View>
   )
 }

@@ -4,11 +4,22 @@ import tw from 'twrnc';
 import AppLoading from 'expo-app-loading';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { bmiActions } from '../store/bmiSlice';
 
 const Gender = () => {
  const [isMaleChecked, setIsMaleChecked] = useState(false);
  const [isFemaleChecked, setIsFemaleChecked] = useState(false);
+ const dispatch = useDispatch();
+
+ useEffect(() => {
+   if(isFemaleChecked || isMaleChecked) {
+    dispatch(bmiActions.setIsGenderSelected(true));
+    } else {
+      dispatch(bmiActions.setIsGenderSelected(false));
+    }
+  }, [isFemaleChecked, isMaleChecked]);
 
  const [fontLoaded] = useFonts({
   Poppins_400Regular,

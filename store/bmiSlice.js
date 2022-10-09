@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const bmiSlice = createSlice({
   name: "bmi",
   initialState: {
-    age: 1,
+    age: 0,
     weight: 0,
     height: 0,
     unit: "Kgs",
@@ -11,6 +11,7 @@ const bmiSlice = createSlice({
     bmiCategory: "",
     bmiRange: "",
     bmiColor: "",
+    isGenderSelected: false,
   }, // initial state
   reducers: {
     setAge: (state, action) => {
@@ -36,7 +37,10 @@ const bmiSlice = createSlice({
     },
     setBmiColor: (state, action) => {
       state.bmiColor = action.payload;
-    }, 
+    },
+    setIsGenderSelected: (state, action) => {
+      state.isGenderSelected = action.payload;
+    }  
   }, // reducers 
 });
 

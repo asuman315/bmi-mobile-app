@@ -1,5 +1,5 @@
 import { View, Text } from 'react-native'
-import React from 'react';
+import React, {useEffect} from 'react';
 import tw from 'twrnc';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -7,8 +7,11 @@ const BmiCtaBtn = () => {
 
   const dispatch = useDispatch();
   const age = useSelector(state => state.bmi.age);
+  const isGenderSelected = useSelector(state => state.bmi.isGenderSelected);
 
-  console.log("This is the User's age: ", age);
+  useEffect(() => {
+  console.log("Is gender selected? : ", isGenderSelected);
+  });
 
   return (
     <View>

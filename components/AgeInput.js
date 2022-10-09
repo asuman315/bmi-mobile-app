@@ -16,7 +16,7 @@ const AgeInput = () => {
   useEffect(() => {
     dispatch(bmiActions.setAge(ageInputValue));
   }, [ageInputValue]);
-  
+
   const [fontLoaded] = useFonts({
     Poppins_600SemiBold,
   });
@@ -24,7 +24,6 @@ const AgeInput = () => {
   if (!fontLoaded) {
     return <AppLoading />;
   };
-
 
   const incrementAge = () => {
     ageInputValue === '' ? setAgeInputValue(1) : setAgeInputValue(parseInt(ageInputValue) + 1)

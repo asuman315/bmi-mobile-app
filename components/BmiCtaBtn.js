@@ -32,6 +32,22 @@ const BmiCtaBtn = () => {
         type: 'danger',
       });
   };
+
+  if (age === '') {
+    setAlert({
+      show: true,
+      msg: 'Please enter your age',
+      type: 'danger',
+    });
+  };
+
+  if (age < 18 && age !== '') {
+    setAlert({
+      show: true,
+      msg: 'You must be 18 years or older',
+      type: 'danger',
+    });
+  };
 };
 
   return (

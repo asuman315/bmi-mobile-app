@@ -48,6 +48,15 @@ const BmiCtaBtn = () => {
       type: 'danger',
     });
   };
+
+  if (weight === '') {
+    setAlert({
+      show: true,
+      msg: 'Please enter your weight',
+      type: 'danger',
+    });
+  };
+  
 };
 
   return (

@@ -1,15 +1,24 @@
 import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import tw from 'twrnc';
 import { useFonts, Poppins_600SemiBold } from '@expo-google-fonts/poppins';
 import AppLoading from 'expo-app-loading';
 import { styles } from './Inputs';
 import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
+import { useDispatch, useSelector } from 'react-redux';
+import { bmiActions } from '../store/bmiSlice';
 
 const HeightInput = () => {
  const [heightInputValue, setHeightInputValue] = useState('');
  const [unit, setUnit] = useState('m');
  const [displayUnits, setDisplayUnits] = useState(false);
+
+ const dispatch = useDispatch();
+
+ useEffect(() => {
+    dispatch(bmiActions.setHeight(heightInputValue));
+    dispatch(bmiActions.setHeightUnit(unit));
+  }, [heightInputValue, unit]);
 
  const [fontLoaded] = useFonts({
   Poppins_600SemiBold,
@@ -21,10 +30,12 @@ const HeightInput = () => {
 
  const incrementHeight = () => {
   heightInputValue === '' ? setHeightInputValue(1) : setHeightInputValue(parseInt(heightInputValue) + 1)
+  dispatch(bmiActions.setHeight(heightInputValue + 1));
  };
 
  const decrementHeight = () => {
-  heightInputValue > 0 ? setHeightInputValue(heightInputValue - 1) : setHeightInputValue(0)
+  heightInputValue > 0 ? setHeightInputValue(heightInputValue - 1) : setHeightInputValue(0);
+  heightInputValue > 0 ? dispatch(bmiActions.setHeight(heightInputValue - 1)) : dispatch(bmiActions.setHeight(0));
  };
 
  const setM = () => {

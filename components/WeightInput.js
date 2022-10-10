@@ -48,7 +48,7 @@ const WeightInput = () => {
   setUnit('Ibs');
  };
 
- console.log('weight unit', unit);
+ //console.log('weight unit', unit);
 
  return (
   <View style={tw`mt-6`}>

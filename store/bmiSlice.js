@@ -7,6 +7,7 @@ const bmiSlice = createSlice({
     weight: 0,
     height: 0,
     weightUnit: "",
+    heightUnit: "",
     bmi: 0,
     bmiCategory: "",
     bmiRange: "",
@@ -25,6 +26,9 @@ const bmiSlice = createSlice({
     },
     setWeightUnit: (state, action) => {
       state.weightUnit = action.payload;
+    },
+    setHeightUnit: (state, action) => {
+      state.heightUnit = action.payload;
     },
     setBmi: (state, action) => {
       state.bmi = action.payload;

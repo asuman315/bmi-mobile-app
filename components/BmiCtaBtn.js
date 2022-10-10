@@ -56,7 +56,15 @@ const BmiCtaBtn = () => {
       type: 'danger',
     });
   };
-  
+
+  if (height === '') {
+    setAlert({
+      show: true,
+      msg: 'Please enter your height',
+      type: 'danger',
+    });
+  };
+
 };
 
   return (

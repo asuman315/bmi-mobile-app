@@ -1,11 +1,11 @@
-import React, { useContext, useEffect } from 'react';
-import { AppContext } from './App'
+import React, { useEffect } from 'react';
+import tw from 'twrnc';
+import { Text } from 'react-native';
 
-const Alert = () => {
+const Alert = ({ alert, setAlert }) => {
  //grab alert and setAlert from root component
- const { alert, setAlert } = useContext(AppContext)
 
- const { msg } = alert
+ const { msg, type } = alert
 
  //clear alert after 3 secs
  useEffect(() => {
@@ -18,7 +18,7 @@ const Alert = () => {
  }, [])
 
  return (
-  <p className='alert'>{msg}</p>
+  <Text style={tw`${type === 'danger' ? 'text-red-800' : 'text-green-800'}`}>{msg}</Text>
  )
 }
 

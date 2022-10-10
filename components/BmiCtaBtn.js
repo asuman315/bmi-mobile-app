@@ -36,7 +36,7 @@ const BmiCtaBtn = () => {
 
   return (
     <View>
-      {alert.show && (<View>
+      {alert.show && (<View style={tw`absolute top-1 w-full`}>
         <Alert alert={alert} setAlert={setAlert} />
       </View>)}
       <TouchableOpacity onPress={getBMI}>

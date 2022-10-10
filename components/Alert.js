@@ -15,11 +15,11 @@ const Alert = ({ alert, setAlert }) => {
 
   //clean up function
   return () => clearTimeout(alertTimeOut)
- }, [])
+ }, []);
 
  return (
-  <Text style={tw`${type === 'danger' ? 'text-red-800' : 'text-green-800'}`}>{msg}</Text>
+  <Text style={tw`${type === 'danger' ? 'text-red-800 bg-red-100' : 'text-green-800 bg-green-100'} font-bold tracking-wider pl-2 rounded py-1`}>{msg}</Text>
  )
-}
+};
 
-export default Alert
+export default Alert;

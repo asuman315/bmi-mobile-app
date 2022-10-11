@@ -6,7 +6,7 @@ const Home = () => {
 
   return (
     <SafeAreaView style={tw`bg-[#0f172a] h-full flex items-center justify-center`}>
-      <Text style={tw`text-white font-bold text-3xl uppercase`}>
+      <Text style={tw`text-white font-bold text-2xl uppercase bg-slate-700 px-7 py-3 rounded`}>
         Get your bmi
       </Text>
     </SafeAreaView>

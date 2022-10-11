@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import tw from 'twrnc';
 import { useDispatch, useSelector } from 'react-redux';
 import Alert from './Alert';
+import { bmiActions } from '../store/bmiSlice';
 
 const BmiCtaBtn = () => {
 
@@ -85,7 +86,7 @@ const BmiCtaBtn = () => {
   const healthyWeightRange = [healthyWeightOne, healthyWeightTwo];
 
   useEffect(() => {
-    dispatch(bmiActiions.setBmi(bmi));
+    dispatch(bmiActions.setBmi(bmi));
   });
 
   return (

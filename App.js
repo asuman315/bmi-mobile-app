@@ -1,6 +1,6 @@
 import { View, Text } from "react-native";
 import Home from "./screens/Home";
-import Results from "./screens/Results";
+import BmiResults from "./screens/BmiResults";
 import { Provider } from 'react-redux';
 import store from './store';
 import { NavigationContainer } from '@react-navigation/native';
@@ -16,9 +16,8 @@ export default function App() {
           <Stack.Screen
             name="Home"
             component={Home}
-            options={{ title: 'Welcome' }}
           />
-          <Stack.Screen name="Results" component={Results} />
+          <Stack.Screen name="Results" component={BmiResults} />
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>

@@ -6,6 +6,8 @@ import { useDispatch, useSelector } from 'react-redux';
 const BmiResults = () => {
 
   const bmi = useSelector(state => state.bmi.bmi);
+  const healthyWeightOne = useSelector(state => state.bmi.healthyWeightOne);
+  const healthyWeightTwo = useSelector(state => state.bmi.healthyWeightTwo);
 
   return (
     <View style={tw`bg-slate-900 h-full`}>

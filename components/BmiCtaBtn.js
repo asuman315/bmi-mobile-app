@@ -21,9 +21,9 @@ const BmiCtaBtn = ({ navigation }) => {
     type: '',
   });
 
-  useEffect(() => {
-    console.log(`This is the height: ${height} and it is in ${heightUnit}`);
-  });
+  // useEffect(() => {
+  //   console.log(`This is the height: ${height} and it is in ${heightUnit}`);
+  // });
 
   const getBMI = () => {
     if (!isGenderSelected) {
@@ -78,7 +78,7 @@ const BmiCtaBtn = ({ navigation }) => {
   const healthyBmiOne = 18.5;
   const healthyBmiTwo = 24.9;
   
-  if (weightUnit === 'Ibs' && heightUnit === 'ft') {
+  if (weightUnit === 'Ibs' && heightUnit === 'm') {
     convertedBmi = (weight * 0.4536) / (height * height);
     convertedHealthyWeightOne = (height * height) * healthyBmiOne / 0.4536;
     convertedHealthyWeightTwo = (height * height) * healthyBmiTwo / 0.4536;
@@ -89,8 +89,12 @@ const BmiCtaBtn = ({ navigation }) => {
   const healthyWeightTwo = Math.round(convertedHealthyWeightTwo);
   const healthyWeightRange = [healthyWeightOne, healthyWeightTwo];
 
+  console.log('bmi: ', bmi);
+
   dispatch(bmiActions.setBmi(bmi));
-  navigation.navigate('BmiResults');
+  dispatch(bmiActions.setHealthyWeightOne(healthyWeightOne));
+  dispatch(bmiActions.setHealthyWeightTwo(healthyWeightTwo));
+  //navigation.navigate('BmiResults');
 };
 
   useEffect(() => {

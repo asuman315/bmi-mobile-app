@@ -21,10 +21,6 @@ const BmiCtaBtn = ({ navigation }) => {
     type: '',
   });
 
-  // useEffect(() => {
-  //   console.log(`This is the height: ${height} and it is in ${heightUnit}`);
-  // });
-
   const getBMI = () => {
     if (!isGenderSelected) {
       setAlert({
@@ -82,7 +78,31 @@ const BmiCtaBtn = ({ navigation }) => {
     convertedBmi = (weight * 0.4536) / (height * height);
     convertedHealthyWeightOne = (height * height) * healthyBmiOne / 0.4536;
     convertedHealthyWeightTwo = (height * height) * healthyBmiTwo / 0.4536;
-  };
+    } else if (selectedHeightUnit === 'ft' && selectedWeightUnit === 'Kgs') {
+      //console.log('Feet and Kilos have been selected')
+      convertedBmi = weight / (height * height * 0.093)
+
+      convertedHealthyWeightOne = healthyBmiOne * (height * height * 0.093)
+
+      convertedHealthyWeightTwo = healthyBmiTwo * (height * height * 0.093)
+
+    } else if (selectedWeightUnit === 'Ibs' && selectedHeightUnit === 'ft') {
+      //console.log('Pounds and Feet have been selected');
+      convertedBmi = (weight * 0.4536) / (height * height * 0.093)
+
+      convertedHealthyWeightOne = healthyBmiOne * (height * height * 0.093) / 0.4536
+
+      convertedHealthyWeightTwo = healthyBmiTwo * (height * height * 0.093) / 0.4536
+
+    } else {
+      //console.log('Default Values (Kgs and m) have been selected')
+      convertedBmi = weight / (height * height)
+
+      convertedHealthyWeightOne = healthyBmiOne * (height * height)
+
+      convertedHealthyWeightTwo = healthyBmiTwo * (height * height)
+
+    };
   
   const bmi = Math.round((convertedBmi) * 10) / 10;
   const healthyWeightOne = Math.round(convertedHealthyWeightOne);
@@ -94,12 +114,9 @@ const BmiCtaBtn = ({ navigation }) => {
   dispatch(bmiActions.setBmi(bmi));
   dispatch(bmiActions.setHealthyWeightOne(healthyWeightOne));
   dispatch(bmiActions.setHealthyWeightTwo(healthyWeightTwo));
+
   //navigation.navigate('BmiResults');
 };
-
-  useEffect(() => {
-
-  });
 
   return (
     <View>

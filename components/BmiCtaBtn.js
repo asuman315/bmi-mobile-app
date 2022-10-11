@@ -78,28 +78,22 @@ const BmiCtaBtn = ({ navigation }) => {
     convertedBmi = (weight * 0.4536) / (height * height);
     convertedHealthyWeightOne = (height * height) * healthyBmiOne / 0.4536;
     convertedHealthyWeightTwo = (height * height) * healthyBmiTwo / 0.4536;
-    } else if (selectedHeightUnit === 'ft' && selectedWeightUnit === 'Kgs') {
+    } else if (heightUnit === 'ft' && weightUnit === 'Kgs') {
       //console.log('Feet and Kilos have been selected')
       convertedBmi = weight / (height * height * 0.093)
-
       convertedHealthyWeightOne = healthyBmiOne * (height * height * 0.093)
-
       convertedHealthyWeightTwo = healthyBmiTwo * (height * height * 0.093)
 
-    } else if (selectedWeightUnit === 'Ibs' && selectedHeightUnit === 'ft') {
+    } else if (weightUnit === 'Ibs' && heightUnit === 'ft') {
       //console.log('Pounds and Feet have been selected');
       convertedBmi = (weight * 0.4536) / (height * height * 0.093)
-
       convertedHealthyWeightOne = healthyBmiOne * (height * height * 0.093) / 0.4536
-
       convertedHealthyWeightTwo = healthyBmiTwo * (height * height * 0.093) / 0.4536
 
     } else {
       //console.log('Default Values (Kgs and m) have been selected')
       convertedBmi = weight / (height * height)
-
       convertedHealthyWeightOne = healthyBmiOne * (height * height)
-
       convertedHealthyWeightTwo = healthyBmiTwo * (height * height)
 
     };
@@ -115,7 +109,7 @@ const BmiCtaBtn = ({ navigation }) => {
   dispatch(bmiActions.setHealthyWeightOne(healthyWeightOne));
   dispatch(bmiActions.setHealthyWeightTwo(healthyWeightTwo));
 
-  //navigation.navigate('BmiResults');
+  navigation.navigate('BmiResults');
 };
 
   return (

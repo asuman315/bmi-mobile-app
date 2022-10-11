@@ -28,8 +28,11 @@ const BmiResults = () => {
   }
 
   return (
-    <View style={tw`bg-slate-900 h-full`}>
-      <Text style={tw`text-slate-300`}>Results: Your BMI is {bmi}</Text>
+    <View style={tw`bg-slate-900 h-full px-3 py-4`}>
+      <Text style={tw`text-slate-300 uppercase pb-5 text-2xl font-bold`}>bmi Results</Text>
+      <Text style={tw`text-slate-300 text-lg`}>
+        Your BMI is <Text style={tw`${bmiCategory === 'Normal weight' ? 'text-green-900' : 'text-red-900'} font-bold`} >{bmi}</Text>, indicating your weight is in the <Text style={tw`${bmiCategory === 'Normal weight' ? 'text-green-900' : 'text-red-900'} font-bold`}>{bmiCategory}</Text> category for adults of your height.
+      </Text>
     </View>
   )
 }

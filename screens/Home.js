@@ -1,12 +1,14 @@
 import { View, SafeAreaView, Text, StyleSheet, ScrollView } from 'react-native'
 import React from 'react'
 import tw from 'twrnc';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-const Home = () => {
+const Home = ({ navigation }) => {
 
   return (
     <SafeAreaView style={tw`bg-[#0f172a] h-full flex items-center justify-center`}>
-      <Text style={tw`text-white font-bold text-2xl uppercase bg-slate-700 px-7 py-3 rounded`}>
+      <Text style={tw`text-white font-bold text-2xl uppercase bg-slate-700 px-12 py-3 rounded`} onPress={() => navigation.push('BmiScreen')}>
         Get your bmi
       </Text>
     </SafeAreaView>

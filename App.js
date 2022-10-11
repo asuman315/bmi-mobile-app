@@ -1,6 +1,7 @@
 import { View, Text } from "react-native";
 import Home from "./screens/Home";
 import BmiResults from "./screens/BmiResults";
+import BmiScreen from "./screens/BmiScreen";
 import { Provider } from 'react-redux';
 import store from './store';
 import { NavigationContainer } from '@react-navigation/native';
@@ -17,7 +18,14 @@ export default function App() {
             name="Home"
             component={Home}
           />
-          <Stack.Screen name="Results" component={BmiResults} />
+          <Stack.Screen
+            name="BmiScreen"
+            component={BmiScreen}
+          />
+          <Stack.Screen 
+            name="BmiResults" 
+            component={BmiResults} 
+          />
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>

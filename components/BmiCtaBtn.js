@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Alert from './Alert';
 import { bmiActions } from '../store/bmiSlice';
 
-const BmiCtaBtn = () => {
+const BmiCtaBtn = ({ navigation }) => {
 
   const dispatch = useDispatch();
   const age = useSelector(state => state.bmi.age);
@@ -32,6 +32,7 @@ const BmiCtaBtn = () => {
         msg: 'Please select your gender',
         type: 'danger',
       });
+      return;
   };
 
   if (age === '') {
@@ -40,6 +41,7 @@ const BmiCtaBtn = () => {
       msg: 'Please enter your age',
       type: 'danger',
     });
+    return;
   };
 
   if (age < 18 && age !== '') {
@@ -48,6 +50,7 @@ const BmiCtaBtn = () => {
       msg: 'You must be 18 years or older',
       type: 'danger',
     });
+    return
   };
 
   if (weight === '') {
@@ -56,6 +59,7 @@ const BmiCtaBtn = () => {
       msg: 'Please enter your weight',
       type: 'danger',
     });
+    return
   };
 
   if (height === '') {
@@ -64,7 +68,10 @@ const BmiCtaBtn = () => {
       msg: 'Please enter your height',
       type: 'danger',
     });
+    return
   };
+
+  navigation.navigate('BmiResults');
 };
 
   // Handling Healthy Weight Ranges and Bmi

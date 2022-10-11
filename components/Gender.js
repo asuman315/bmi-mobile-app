@@ -1,7 +1,5 @@
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import { useFonts, Poppins_400Regular, Poppins_600SemiBold } from '@expo-google-fonts/poppins';
 import tw from 'twrnc';
-import AppLoading from 'expo-app-loading';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
 import React, { useState, useEffect } from 'react';
@@ -20,15 +18,6 @@ const Gender = () => {
       dispatch(bmiActions.setIsGenderSelected(false));
     }
   }, [isFemaleChecked, isMaleChecked]);
-
- const [fontLoaded] = useFonts({
-  Poppins_400Regular,
-  Poppins_600SemiBold,
- });
-
- if (!fontLoaded) {
-  return <AppLoading />;
- }
 
  const handleMalePress = () => {
   setIsMaleChecked(true);
@@ -71,13 +60,11 @@ const Gender = () => {
 
 const styles = StyleSheet.create({
  title: {
-  fontFamily: 'Poppins_600SemiBold',
   color: '#fff',
   textTransform: 'capitalize',
   fontSize: 18,
  },
  genderTitle: {
-  fontFamily: 'Poppins_400Regular',
   color: '#fff',
   textTransform: 'capitalize'
  },

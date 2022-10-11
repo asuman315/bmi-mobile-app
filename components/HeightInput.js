@@ -1,8 +1,6 @@
 import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
 import React, { useState, useEffect } from 'react';
 import tw from 'twrnc';
-import { useFonts, Poppins_600SemiBold } from '@expo-google-fonts/poppins';
-import AppLoading from 'expo-app-loading';
 import { styles } from './Inputs';
 import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
 import { useDispatch, useSelector } from 'react-redux';
@@ -19,14 +17,6 @@ const HeightInput = () => {
     dispatch(bmiActions.setHeight(heightInputValue));
     dispatch(bmiActions.setHeightUnit(unit));
   }, [heightInputValue, unit]);
-
- const [fontLoaded] = useFonts({
-  Poppins_600SemiBold,
- });
-
- if (!fontLoaded) {
-  return <AppLoading />;
- }
 
  const incrementHeight = () => {
   heightInputValue === '' ? setHeightInputValue(1) : setHeightInputValue(parseInt(heightInputValue) + 1)

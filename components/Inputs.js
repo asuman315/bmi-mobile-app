@@ -6,14 +6,14 @@ import WeightInput from './WeightInput';
 import HeightInput from './HeightInput';
 import BmiCtaBtn from './BmiCtaBtn';
 
-const Inputs = () => {
+const Inputs = ({ navigation }) => {
 
   return (
     <View style={tw`mt-2`}>
       <AgeInput />
       <WeightInput />
       <HeightInput />
-      <BmiCtaBtn />
+      <BmiCtaBtn navigation={navigation} />
     </View>
   )
 }

@@ -15,6 +15,7 @@ const bmiSlice = createSlice({
     isGenderSelected: false,
     healthyWeightOne: 0,
     healthyWeightTwo: 0,
+    healthyWeightRange: '',
   }, // initial state
   reducers: {
     setAge: (state, action) => {
@@ -52,7 +53,10 @@ const bmiSlice = createSlice({
     },
     setHealthyWeightTwo: (state, action) => {
       state.healthyWeightTwo = action.payload;
-    },  
+    },
+    setHealthyWeightRange: (state, action) => {
+      state.healthyWeightRange = action.payload;
+    }  
   }, // reducers 
 });
 

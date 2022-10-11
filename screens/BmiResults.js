@@ -3,11 +3,14 @@ import React from 'react';
 import tw from 'twrnc';
 import { useDispatch, useSelector } from 'react-redux';
 
-const BmiResults = () => {
+const BmiResults = ({ navigation }) => {
 
   const bmi = useSelector(state => state.bmi.bmi);
   const healthyWeightOne = useSelector(state => state.bmi.healthyWeightOne);
   const healthyWeightTwo = useSelector(state => state.bmi.healthyWeightTwo);
+  const height = useSelector(state => state.bmi.height);
+  const weightUnit = useSelector(state => state.bmi.weightUnit);
+  const heightUnit = useSelector(state => state.bmi.heightUnit);
 
   //Handling Bmi categories
   let bmiCategory = '';
@@ -30,9 +33,14 @@ const BmiResults = () => {
   return (
     <View style={tw`bg-slate-900 h-full px-3 py-4`}>
       <Text style={tw`text-slate-300 uppercase pb-5 text-2xl font-bold`}>bmi Results</Text>
-      <Text style={tw`text-slate-300 text-lg`}>
+      <Text style={tw`text-slate-300 text-base`}>
         Your BMI is <Text style={tw`${bmiCategory === 'Normal weight' ? 'text-green-900' : 'text-red-900'} font-bold`} >{bmi}</Text>, indicating your weight is in the <Text style={tw`${bmiCategory === 'Normal weight' ? 'text-green-900' : 'text-red-900'} font-bold`}>{bmiCategory}</Text> category for adults of your height.
       </Text>
+      <Text style={tw`text-slate-300 text-base`}>
+        For your height of <Text>{height}</Text> {heightUnit === 'm' ? 'meters' : 'feet'}, a normal weight range would be from <Text>{healthyWeightOne}</Text> to <Text>{healthyWeightTwo}</Text> {weightUnit === 'Kgs' ? 'kilograms' : 'Pounds'}.
+      </Text>
+      <Text style={tw`text-slate-300 text-base`}>{recommendation}</Text>
+      <Text onPress={() => navigation.navigate('Home')} style={tw`text-slate-300 text-lg bg-slate-600 text-center mt-6`}>Back To Home</Text>
     </View>
   )
 }

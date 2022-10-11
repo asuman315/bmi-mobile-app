@@ -108,6 +108,7 @@ const BmiCtaBtn = ({ navigation }) => {
   dispatch(bmiActions.setBmi(bmi));
   dispatch(bmiActions.setHealthyWeightOne(healthyWeightOne));
   dispatch(bmiActions.setHealthyWeightTwo(healthyWeightTwo));
+  dispatch(bmiActions.setHealthyWeightRange(healthyWeightRange));
 
   navigation.navigate('BmiResults');
 };

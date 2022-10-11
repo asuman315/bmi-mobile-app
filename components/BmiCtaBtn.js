@@ -64,8 +64,29 @@ const BmiCtaBtn = () => {
       type: 'danger',
     });
   };
-
 };
+
+  // Handling Healthy Weight Ranges and Bmi
+  let convertedBmi = '';
+  let convertedHealthyWeightOne = '';
+  let convertedHealthyWeightTwo = '';
+  const healthyBmiOne = 18.5;
+  const healthyBmiTwo = 24.9;
+
+  if (weightUnit === 'Ibs' && heightUnit === 'ft') {
+    convertedBmi = (weight * 0.4536) / (height * height);
+    convertedHealthyWeightOne = (height * height) * healthyBmiOne / 0.4536;
+    convertedHealthyWeightTwo = (height * height) * healthyBmiTwo / 0.4536;
+  };
+
+  const bmi = Math.round((convertedBmi) * 10) / 10;
+  const healthyWeightOne = Math.round(convertedHealthyWeightOne);
+  const healthyWeightTwo = Math.round(convertedHealthyWeightTwo);
+  const healthyWeightRange = [healthyWeightOne, healthyWeightTwo];
+
+  useEffect(() => {
+    dispatch(bmiActiions.setBmi(bmi));
+  });
 
   return (
     <View>

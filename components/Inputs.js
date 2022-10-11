@@ -20,13 +20,11 @@ const Inputs = ({ navigation }) => {
 
 export const styles = StyleSheet.create({
   title: {
-    fontFamily: 'Poppins_600SemiBold',
     color: '#fff',
     textTransform: 'capitalize',
     fontSize: 18,
   },
   genderTitle: {
-    fontFamily: 'Poppins_400Regular',
     color: '#fff',
     textTransform: 'capitalize'
   },

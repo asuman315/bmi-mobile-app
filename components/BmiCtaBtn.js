@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity } from 'react-native'
+import { View, Text, TouchableOpacity, ScrollView } from 'react-native'
 import React, { useEffect, useState } from 'react';
 import tw from 'twrnc';
 import { useDispatch, useSelector } from 'react-redux';
@@ -102,8 +102,6 @@ const BmiCtaBtn = ({ navigation }) => {
   const healthyWeightOne = Math.round(convertedHealthyWeightOne);
   const healthyWeightTwo = Math.round(convertedHealthyWeightTwo);
   const healthyWeightRange = [healthyWeightOne, healthyWeightTwo];
-
-  console.log('bmi: ', bmi);
 
   dispatch(bmiActions.setBmi(bmi));
   dispatch(bmiActions.setHealthyWeightOne(healthyWeightOne));
